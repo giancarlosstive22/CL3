@@ -1,54 +1,39 @@
 package com.CL3.demo.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 @Entity
-@Table(name="carrera")
+@Table(name="carreras")
+@ToString
+@Getter
+@Setter
 public class carreraDTO {
 
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @Column(name="codigo")
     private int codigo;
-    private String nombreCarrera;
-    private String coordinador;
+    @Column(name="nombrecarrera")
+    private String carrera;
+    @Column(name="coordinador" )
+    private String coordinador; 
+    @Column(name="costo")
     private double costo;
-    private int semestres;
+    @Column(name="semestres")
+    private int sementre;
     
-    public int getCodigo() {
-        return codigo;
+    public carreraDTO(int codigo){
+        this.codigo=codigo;
     }
-    public void setCodigo(int codigo) {
-        this.codigo = codigo;
+    public carreraDTO(){
     }
-    public String getNombreCarrera() {
-        return nombreCarrera;
-    }
-    public void setNombreCarrera(String nombreCarrera) {
-        this.nombreCarrera = nombreCarrera;
-    }
-    public String getCoordinador() {
-        return coordinador;
-    }
-    public void setCoordinador(String coordinador) {
-        this.coordinador = coordinador;
-    }
-    public double getCosto() {
-        return costo;
-    }
-    public void setCosto(double costo) {
-        this.costo = costo;
-    }
-    public int getSemestres() {
-        return semestres;
-    }
-    public void setSemestres(int semestres) {
-        this.semestres = semestres;
-    }
-
-
-    
-    
 }

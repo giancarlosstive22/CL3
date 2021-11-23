@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.18.1.final using JasperReports Library version 6.18.1-9d75d1969e774d4f179fb3be8401e98a0e6d1611  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReporteXCarrera" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="8c2880a9-d155-46db-a306-d644ae3ac12c">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w1" value="350"/>
+	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w2" value="638"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="CL3"/>
+	<queryString language="SQL">
+		<![CDATA[select c.nombrecarrera as carrera , count(a.carrera) as cant_x_carrera from alumnos  as a
+join carreras as c on c.codigo= a.carrera
+group by nombrecarrera]]>
+	</queryString>
+	<field name="carrera" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="nombrecarrera"/>
+		<property name="com.jaspersoft.studio.field.label" value="carrera"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="carreras"/>
+	</field>
+	<field name="cant_x_carrera" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.name" value="cant_x_carrera"/>
+		<property name="com.jaspersoft.studio.field.label" value="cant_x_carrera"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="86" splitType="Stretch">
+			<staticText>
+				<reportElement x="130" y="10" width="540" height="60" uuid="dc92105b-bebf-4fc5-bf3b-75550b97ae40"/>
+				<textElement textAlignment="Center">
+					<font fontName="Broadway" size="20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[GRAFICO DE TOTAL DE ALUMNOS MATRICULADO POR MATRICULA]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="324" splitType="Stretch">
+			<pie3DChart>
+				<chart evaluationTime="Report">
+					<reportElement x="90" y="10" width="570" height="300" uuid="510aa854-5b14-4d49-b044-586449fa1bb1"/>
+					<chartTitle/>
+					<chartSubtitle/>
+					<chartLegend/>
+				</chart>
+				<pieDataset>
+					<dataset resetType="Report"/>
+					<keyExpression><![CDATA[$F{carrera}]]></keyExpression>
+					<valueExpression><![CDATA[$F{cant_x_carrera}]]></valueExpression>
+					<labelExpression><![CDATA[$F{cant_x_carrera}.toString()]]></labelExpression>
+				</pieDataset>
+				<pie3DPlot>
+					<plot/>
+					<itemLabel/>
+				</pie3DPlot>
+			</pie3DChart>
+		</band>
+	</summary>
+</jasperReport>

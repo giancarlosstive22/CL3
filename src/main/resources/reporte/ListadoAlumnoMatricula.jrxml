@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.18.1.final using JasperReports Library version 6.18.1-9d75d1969e774d4f179fb3be8401e98a0e6d1611  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ListadoAlumnoMatricula" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="9e56659c-d870-490a-ab5c-05de11b5d45d">
+	<property name="com.jaspersoft.studio.data.sql.tables">
+		<![CDATA[Y2wzLmNhcnJlcmFzIEFTICwyMzcsMTAwLGNlNmZlN2EyLTA4ZmItNGQ0YS1iOGYwLWNjZjRlNTE1
+ZWE2ZTtjbDMuYWx1bW5vcyBBUyAsMjksNjIsMmNmMGExNTItOWRjOS00NTcwLWJmMGQtN2FhYzVi
+OGU5YWNiOw==]]>
+	</property>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="CL3"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT cl3.alumnos.codigo,
+	cl3.alumnos.nombrealumno,
+	cl3.carreras.nombrecarrera
+FROM cl3.alumnos
+	INNER JOIN cl3.carreras ON 
+	 cl3.alumnos.carrera = cl3.carreras.codigo]]>
+	</queryString>
+	<field name="codigo" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="codigo"/>
+		<property name="com.jaspersoft.studio.field.label" value="codigo"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="alumnos"/>
+	</field>
+	<field name="nombrealumno" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="nombrealumno"/>
+		<property name="com.jaspersoft.studio.field.label" value="nombrealumno"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="alumnos"/>
+	</field>
+	<field name="nombrecarrera" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="nombrecarrera"/>
+		<property name="com.jaspersoft.studio.field.label" value="nombrecarrera"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="carreras"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="20" y="8" width="510" height="42" uuid="b30182ef-8eb1-48df-882f-cc11a469f8d9"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Britannic Bold" size="20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[LISTADO DE ALUMNO MATRICULADO]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="48" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="185" height="30" forecolor="#3D3C3C" backcolor="#DE9190" uuid="cd6b4a29-b997-47d3-8d4c-ba83527029db">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="5a42de8b-1abf-4726-b167-3fa5700f1f16"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="16"/>
+				</textElement>
+				<text><![CDATA[CODIGO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="185" y="0" width="185" height="30" forecolor="#3D3C3C" backcolor="#DE9190" uuid="0ae652e5-b12a-492a-952f-6019e8bd5d38">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="88f731d7-bfaa-43e4-b155-cbf84cdbfa07"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="16"/>
+				</textElement>
+				<text><![CDATA[NOMBRE COMPLETO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="370" y="0" width="185" height="30" forecolor="#3D3C3C" backcolor="#DE9190" uuid="37d0119a-1d4e-4649-9d41-38cdb01a5c37">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="4828edad-9ab7-4b42-9c0b-11740e0dd622"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="16"/>
+				</textElement>
+				<text><![CDATA[CARRERA]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="36" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="185" height="30" uuid="30f8b352-4dcf-4eeb-a5f0-867a2cc51401">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="5a42de8b-1abf-4726-b167-3fa5700f1f16"/>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="1.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{codigo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="185" y="0" width="185" height="30" uuid="faab3408-205a-44b0-bea4-20359ba303a3">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="88f731d7-bfaa-43e4-b155-cbf84cdbfa07"/>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="1.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{nombrealumno}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="370" y="0" width="185" height="30" uuid="b7d4e333-5dec-4a4f-a7f9-e9cf54a47abe">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="4828edad-9ab7-4b42-9c0b-11740e0dd622"/>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="1.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{nombrecarrera}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+</jasperReport>

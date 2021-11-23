@@ -1,64 +1,44 @@
 package com.CL3.demo.model;
 
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
 @Entity
 @Table(name="alumnos")
-
+@ToString
+@Getter
+@Setter
 public class alumnoDTO {
 
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
-    
-    private int codigo;
-    private String nombreAlumno;
-    @JoinColumn(name="codCarrera")
-    @OneToMany(fetch=FetchType.EAGER)
-    private carreraDTO Carrera;
-    private int ciclo;
+    @Column(name="codigo")
+    private int codigo; 
+    @Column(name="nombrealumno")
+    private String nombre;
+    @JoinColumn(name="carrera")
+    @ManyToOne(fetch=FetchType.EAGER)
+    private carreraDTO carrera; 
+    @Column(name="ciclo")
+    private int ciclo; 
+    @Column(name="edad")
     private int edad;
-    
-    public int getCodigo() {
-        return codigo;
+  
+    public alumnoDTO(){
     }
-    public void setCodigo(int codigo) {
-        this.codigo = codigo;
-    }
-    public String getNombreAlumno() {
-        return nombreAlumno;
-    }
-    public void setNombreAlumno(String nombreAlumno) {
-        this.nombreAlumno = nombreAlumno;
-    }
-    public carreraDTO getCarrera() {
-        return Carrera;
-    }
-    public void setCarrera(carreraDTO carrera) {
-        Carrera = carrera;
-    }
-    public int getCiclo() {
-        return ciclo;
-    }
-    public void setCiclo(int ciclo) {
-        this.ciclo = ciclo;
-    }
-    public int getEdad() {
-        return edad;
-    }
-    public void setEdad(int edad) {
-        this.edad = edad;
-    }
-
-
-    
 
 
 
